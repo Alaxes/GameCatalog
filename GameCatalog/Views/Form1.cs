@@ -16,6 +16,8 @@ namespace GameCatalog
         {
             InitializeComponent();
 
+            ApplyModernTheme();
+
             // Ініціалізуємо менеджер
             manager = new GameManager();
 
@@ -24,6 +26,35 @@ namespace GameCatalog
 
             // Виводимо дані в таблицю
             RefreshGrid();
+        }
+
+        private void ApplyModernTheme()
+        {
+            this.BackColor = System.Drawing.Color.FromArgb(39, 41, 45);
+            this.ForeColor = System.Drawing.Color.White;
+
+            foreach (Control control in this.Controls)
+            {
+                if (control is Button btn)
+                {
+                    btn.FlatStyle = FlatStyle.Flat;
+                    btn.FlatAppearance.BorderSize = 0;
+                    btn.BackColor = System.Drawing.Color.FromArgb(23, 26, 33);
+                    btn.ForeColor = System.Drawing.Color.White;
+                    btn.Cursor = Cursors.Hand;
+                }
+            }
+
+            dgvGames.EnableHeadersVisualStyles = false;
+            dgvGames.BackgroundColor = System.Drawing.Color.FromArgb(39, 41, 45);
+            dgvGames.BorderStyle = BorderStyle.None;
+            dgvGames.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(23, 26, 33);
+            dgvGames.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            dgvGames.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(42, 46, 51);
+            dgvGames.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            dgvGames.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(102, 192, 244);
+            dgvGames.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            dgvGames.RowHeadersVisible = false;
         }
 
         // Спеціальний метод для оновлення таблиці (ми будемо викликати його часто)
@@ -121,6 +152,8 @@ namespace GameCatalog
                 MessageBox.Show("Виберіть гру зі списку для розрахунку.", "Увага", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        
 
     }
 }
