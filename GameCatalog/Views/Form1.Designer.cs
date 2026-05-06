@@ -45,6 +45,7 @@
             dgvGames.Location = new Point(37, 37);
             dgvGames.Name = "dgvGames";
             dgvGames.RowHeadersWidth = 51;
+            dgvGames.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvGames.Size = new Size(540, 360);
             dgvGames.TabIndex = 0;
             // 
