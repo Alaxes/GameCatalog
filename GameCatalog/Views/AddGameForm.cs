@@ -50,6 +50,16 @@ namespace GameCatalog
         {
             try
             {
+                // Перевірка: якщо вибрано ПК-гру, поле "Кількість гравців" МАЄ бути пустим
+                if (rbPC.Checked && !string.IsNullOrWhiteSpace(txtPlayers.Text))
+                {
+                    MessageBox.Show("Помилка: Кількість гравців можна вказувати ТІЛЬКИ для онлайн-ігор! Очистіть це поле.",
+                                    "Помилка вводу",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    return; // Зупиняємо виконання методу, гра не зберігається
+                }
+
                 // Зчитуємо базові дані
                 string title = txtTitle.Text;
                 string genre = txtGenre.Text;
